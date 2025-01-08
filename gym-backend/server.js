@@ -2,27 +2,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+require('dotenv').config();
+
 const app = express();
-
-// Middleware
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 
-// Conexión a MongoDB
-const mongoURI = process.env.MONGO_URI || "mongodb+srv://aconstanza:jQoxsIqec82kvZBe@cluster0.nx09j.mongodb.net/?retryWrites=true&w=majority&appName=Cluter0";
-mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => console.log('Conexión a MongoDB exitosa'))
-.catch(err => console.error('Error conectando a MongoDB:', err));
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB Connected'))
+    .catch(err => console.log(err));
 
-// Rutas
-const userRoutes = require('./routes/userRoutes');
-app.use('/api/users', userRoutes);
-
-// Configuración del servidor
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
-});
+app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));
+        
