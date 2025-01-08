@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gym Management System</title>
+    <title>Luxury Gym Management System</title>
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
     <div class="sidebar">
-        <h2>GymProMax</h2>
+        <h2>GymLux</h2>
         <ul>
             <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Usuarios</a></li>
+            <li><a href="#">Clientes</a></li>
             <li><a href="#">Pagos</a></li>
+            <li><a href="#">Reportes</a></li>
             <li><a href="#">Asistencia</a></li>
             <li><a href="#">Configuración</a></li>
         </ul>
@@ -24,23 +25,16 @@
             <h1>Dashboard</h1>
         </header>
 
-        <section class="cards">
-            <div class="card">
-                <h3>Socios Activos</h3>
-                <p id="active-members">120</p>
-            </div>
-            <div class="card">
-                <h3>Socios Vencidos</h3>
-                <p id="expired-members">30</p>
-            </div>
-            <div class="card">
-                <h3>Total de Socios</h3>
-                <p id="total-members">150</p>
-            </div>
-        </section>
-
         <section class="charts">
-            <canvas id="attendanceChart"></canvas>
+            <div class="chart-container">
+                <canvas id="attendanceChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="membershipChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="salesChart"></canvas>
+            </div>
         </section>
     </div>
 
