@@ -1,11 +1,15 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors'); // Importa el paquete CORS
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
+
+// Habilitar CORS para permitir solicitudes desde cualquier origen
+app.use(cors());
 
 // Habilitar CORS para permitir solicitudes desde Netlify
 app.use(cors());
