@@ -1,0 +1,21 @@
+
+{
+  "name": "gym-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@mui/material": "^5.8.7",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+}
+        
