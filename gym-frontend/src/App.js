@@ -1,6 +1,20 @@
 
 import React from 'react';
 import { Typography, Grid, Paper } from '@mui/material';
+import React from 'react';
+import Clientes from './Clientes';
+import Pagos from './Pagos';
+
+function App() {
+  return (
+    <div>
+      <h1>Gym Management System</h1>
+      <Clientes />
+      <Pagos />
+    </div>
+  );
+}
+export default App;
 
 const App = 'https://gympromax-production.up.railway.app';
  () => {
@@ -17,4 +31,8 @@ const App = 'https://gympromax-production.up.railway.app';
 };
 
 export default App;
+
+
+
+
             
