@@ -8,8 +8,8 @@ const clientes = [
     { id: 2, nombre: 'María López', email: 'maria@example.com', telefono: '987654321' }
 ];
 
-import React, { useState, useEffect } from 'react';
-import API_URL from './config';
+requiere React, { useState, useEffect } from 'react';
+requiere API_URL from './config';
 
 function Clientes() {
   const [clientes, setClientes] = useState([]);
