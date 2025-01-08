@@ -8,37 +8,43 @@
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-    <div id="root">
-        <h1>Dashboard - Gym Management System</h1>
-        <p>Bienvenido al sistema de gestión del gimnasio.</p>
+    <div class="sidebar">
+        <h2>GymProMax</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Usuarios</a></li>
+            <li><a href="#">Pagos</a></li>
+            <li><a href="#">Asistencia</a></li>
+            <li><a href="#">Configuración</a></li>
+        </ul>
+    </div>
 
-        <section id="stats">
-            <h2>Estadísticas</h2>
-            <ul>
-                <li>Socios activos: <span id="active-members">120</span></li>
-                <li>Socios vencidos: <span id="expired-members">30</span></li>
-                <li>Total de socios: <span id="total-members">150</span></li>
-            </ul>
+    <div class="main-content">
+        <header>
+            <h1>Dashboard</h1>
+        </header>
+
+        <section class="cards">
+            <div class="card">
+                <h3>Socios Activos</h3>
+                <p id="active-members">120</p>
+            </div>
+            <div class="card">
+                <h3>Socios Vencidos</h3>
+                <p id="expired-members">30</p>
+            </div>
+            <div class="card">
+                <h3>Total de Socios</h3>
+                <p id="total-members">150</p>
+            </div>
         </section>
 
-        <section id="configuration">
-            <h2>Módulo de Configuración</h2>
-            <ul>
-                <li><button onclick="manageMembershipPlans()">Gestionar Planes de Membresía</button></li>
-                <li><button onclick="configureAttendanceDevices()">Configurar Controles de Asistencia</button></li>
-                <li><button onclick="manageUsers()">Gestión de Usuarios</button></li>
-            </ul>
-        </section>
-
-        <section id="payments">
-            <h2>Módulo de Pagos y Reportes</h2>
-            <ul>
-                <li><button onclick="dailyCashReport()">Cuadre de Caja (Hoy)</button></li>
-                <li><button onclick="customDateReport()">Reporte por Fecha</button></li>
-            </ul>
+        <section class="charts">
+            <canvas id="attendanceChart"></canvas>
         </section>
     </div>
 
     <script src="static/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
