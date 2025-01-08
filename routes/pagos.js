@@ -22,23 +22,6 @@ function Pagos() {
       .catch((error) => console.error('Error fetching pagos:', error));
   }, []);
 
-  return (
-    <div>
-      <h1>Lista de Pagos</h1>
-      <ul>
-        {pagos.map((pago) => (
-          <li key={pago.id}>
-            Cliente: {pago.cliente}, Monto: ${pago.monto}, Fecha: {pago.fecha}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-export default Pagos;
-
-
 // Get all payments
 router.get('/', (req, res) => {
     res.json(pagos);
@@ -69,37 +52,5 @@ module.exports = router;
       })
       .catch((error) => console.error('Error adding pago:', error));
   };
-
-  return (
-    <div>
-      <h1>Lista de Pagos</h1>
-      <ul>
-        {pagos.map((pago) => (
-          <li key={pago.id}>
-            Cliente: {pago.cliente}, Monto: ${pago.monto}, Fecha: {pago.fecha}
-          </li>
-        ))}
-      </ul>
-      <input
-        type="text"
-        value={nuevoPago.cliente}
-        onChange={(e) => setNuevoPago({ ...nuevoPago, cliente: e.target.value })}
-        placeholder="Cliente"
-      />
-      <input
-        type="number"
-        value={nuevoPago.monto}
-        onChange={(e) => setNuevoPago({ ...nuevoPago, monto: e.target.value })}
-        placeholder="Monto"
-      />
-      <input
-        type="date"
-        value={nuevoPago.fecha}
-        onChange={(e) => setNuevoPago({ ...nuevoPago, fecha: e.target.value })}
-      />
-      <button onClick={agregarPago}>Agregar Pago</button>
-    </div>
-  );
-}
 
 export default Pagos;
