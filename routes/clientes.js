@@ -1,18 +1,26 @@
-
 const express = require('express');
 const router = express.Router();
 
-// Sample data for testing
+// Sample data
 const clientes = [
     { id: 1, nombre: 'Juan Pérez', email: 'juan@example.com', telefono: '123456789' },
-    { id: 2, nombre: 'María López', email: 'maria@example.com', telefono: '987654321' }
+    { id: 2, nombre: 'María López', email: 'maria@example.com', telefono: '987654321' },
 ];
 
-import React, { useState, useEffect } from 'react';
-import API_URL from './config';
+// Obtener clientes
+router.get('/', (req, res) => {
+    res.json(clientes);
+});
 
-function Clientes() {
-  const [clientes, setClientes] = useState([]);
+// Agregar cliente
+router.post('/', (req, res) => {
+    const nuevoCliente = req.body;
+    clientes.push(nuevoCliente);
+    res.json(nuevoCliente);
+});
+
+module.exports = router;
+
 
  // Agregar un nuevo cliente
   const agregarCliente = () => {
