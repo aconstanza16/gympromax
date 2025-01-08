@@ -20,6 +20,9 @@ mongoose.connect(process.env.MONGODB_URL, {
 // Routes
 app.use('/clientes', require('./routes/clientes'));
 app.use('/pagos', require('./routes/pagos'));
+app.use('/asistencia', require('./routes/asistencia'));
+app.use('/reportes', require('./routes/reportes'));
+app.use('/configuracion', require('./routes/configuracion'));
 
 // Start server
 app.listen(port, () => {
