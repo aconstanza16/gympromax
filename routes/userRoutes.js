@@ -1,7 +1,7 @@
 // routes/userRoutes.js
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User'); // Asegúrate de que el modelo de usuario exista
+const User = require('../models/User');
 
 // Ruta para crear un usuario
 router.post('/create', async (req, res) => {
@@ -12,6 +12,25 @@ router.post('/create', async (req, res) => {
         res.status(201).json({ message: 'Usuario creado con éxito', usuario: nuevoUsuario });
     } catch (error) {
         res.status(500).json({ message: 'Error creando usuario', error });
+    }
+});
+
+// Ruta para registrar un pago
+router.post('/:id/pagos', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { monto } = req.body;
+        const usuario = await User.findById(id);
+
+        if (!usuario) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+
+        usuario.pagos.push({ monto });
+        await usuario.save();
+        res.status(201).json({ message: 'Pago registrado con éxito', pagos: usuario.pagos });
+    } catch (error) {
+        res.status(500).json({ message: 'Error registrando pago', error });
     }
 });
 
