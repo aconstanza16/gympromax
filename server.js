@@ -7,6 +7,9 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 
+// Habilitar CORS para permitir solicitudes desde Netlify
+app.use(cors());
+
 // Connect to MongoDB using Railway-provided URL
 mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
