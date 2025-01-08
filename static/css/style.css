@@ -3,22 +3,23 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212;
-    color: #fff;
+    background-color: #f0f4ff;
+    color: #333;
 }
 .sidebar {
     width: 250px;
     height: 100vh;
-    background-color: #1c1c1c;
-    color: #fff;
+    background-color: #bbdefb;
+    color: #333;
     position: fixed;
     left: 0;
     top: 0;
     padding: 20px;
+    border-radius: 0 20px 20px 0;
 }
 .sidebar h2 {
     text-align: center;
-    color: #FFD700;
+    color: #1e88e5;
 }
 .sidebar ul {
     list-style: none;
@@ -28,13 +29,15 @@ body {
     margin: 20px 0;
 }
 .sidebar ul li a {
-    color: #fff;
+    color: #333;
     text-decoration: none;
     display: block;
+    padding: 10px;
+    border-radius: 10px;
 }
 .sidebar ul li a:hover {
-    background-color: #FFD700;
-    padding: 10px;
+    background-color: #90caf9;
+    color: #fff;
 }
 
 .main-content {
@@ -42,7 +45,7 @@ body {
     padding: 20px;
 }
 header h1 {
-    color: #FFD700;
+    color: #1e88e5;
 }
 .charts {
     display: flex;
@@ -52,8 +55,8 @@ header h1 {
 .chart-container {
     width: 45%;
     margin: 20px 0;
-    background-color: #1c1c1c;
+    background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

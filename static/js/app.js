@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
             datasets: [{
                 label: 'Asistencia Semanal',
                 data: [12, 19, 10, 15, 7, 11, 14],
-                backgroundColor: 'rgba(255, 215, 0, 0.6)',
-                borderColor: 'rgba(255, 215, 0, 1)',
+                backgroundColor: 'rgba(100, 181, 246, 0.6)',
+                borderColor: 'rgba(100, 181, 246, 1)',
                 borderWidth: 1
             }]
         },
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             datasets: [{
                 label: 'Membresías',
                 data: [75, 15, 90],
-                backgroundColor: ['rgba(255, 215, 0, 0.6)', 'rgba(192, 192, 192, 0.6)', 'rgba(0, 0, 0, 0.6)']
+                backgroundColor: ['rgba(100, 181, 246, 0.6)', 'rgba(158, 158, 158, 0.6)', 'rgba(33, 33, 33, 0.6)']
             }]
         }
     });
@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
             datasets: [{
                 label: 'Ventas Diarias',
                 data: [200, 400, 300, 500, 250, 300, 450],
-                backgroundColor: 'rgba(255, 215, 0, 0.4)',
-                borderColor: 'rgba(255, 215, 0, 1)',
+                backgroundColor: 'rgba(100, 181, 246, 0.4)',
+                borderColor: 'rgba(100, 181, 246, 1)',
                 fill: true
             }]
         },
