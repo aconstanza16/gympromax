@@ -1,52 +1,81 @@
-import React, { useState, useEffect } from 'react';
-import API_URL from './config';
+// clientes.js - Gestión de clientes en el frontend
 
-function Clientes() {
-  const [clientes, setClientes] = useState([]);
-  const [nuevoCliente, setNuevoCliente] = useState('');
+// Cambia la URL base a la del backend en Railway
+const apiBaseUrl = "https://gympromax-production.up.railway.app/clientes";
 
-  // Obtener los clientes del backend
-  useEffect(() => {
-    fetch(`${API_URL}/clientes`)
-      .then((response) => response.json())
-      .then((data) => setClientes(data))
-      .catch((error) => console.error('Error fetching clientes:', error));
-  }, []);
+// Crear cliente
+async function createCliente(cliente) {
+    try {
+        const response = await fetch(`${apiBaseUrl}/create`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(cliente),
+        });
 
-  // Agregar un nuevo cliente
-  const agregarCliente = () => {
-    fetch(`${API_URL}/clientes`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ nombre: nuevoCliente }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setClientes([...clientes, data]);
-        setNuevoCliente('');
-      })
-      .catch((error) => console.error('Error adding cliente:', error));
-  };
+        if (!response.ok) {
+            throw new Error(`Error: ${response.statusText}`);
+        }
 
-  return (
-    <div>
-      <h1>Lista de Clientes</h1>
-      <ul>
-        {clientes.map((cliente) => (
-          <li key={cliente.id}>{cliente.nombre}</li>
-        ))}
-      </ul>
-      <input
-        type="text"
-        value={nuevoCliente}
-        onChange={(e) => setNuevoCliente(e.target.value)}
-        placeholder="Nuevo Cliente"
-      />
-      <button onClick={agregarCliente}>Agregar Cliente</button>
-    </div>
-  );
+        const data = await response.json();
+        console.log('Cliente creado:', data);
+    } catch (error) {
+        console.error('Error creando cliente:', error);
+    }
 }
 
-export default Clientes;
+// Registrar un pago
+async function registrarPago(clienteId, monto) {
+    try {
+        const response = await fetch(`${apiBaseUrl}/${clienteId}/pagos`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ monto }),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log('Pago registrado:', data);
+    } catch (error) {
+        console.error('Error registrando pago:', error);
+    }
+}
+
+// Obtener clientes
+async function getClientes() {
+    try {
+        const response = await fetch(apiBaseUrl);
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log('Clientes:', data);
+    } catch (error) {
+        console.error('Error obteniendo clientes:', error);
+    }
+}
+
+// Ejemplo de uso
+document.getElementById('crearClienteBtn').addEventListener('click', () => {
+    const nuevoCliente = {
+        nombre: "Juan Perez",
+        email: "juan.perez@example.com",
+    };
+
+    createCliente(nuevoCliente);
+});
+
+document.getElementById('registrarPagoBtn').addEventListener('click', () => {
+    const clienteId = "id-del-cliente"; // Reemplazar con el ID real
+    const monto = 100; // Reemplazar con el monto real
+
+    registrarPago(clienteId, monto);
+});
