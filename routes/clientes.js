@@ -13,11 +13,4 @@ router.get('/', (req, res) => {
     res.json(clientes);
 });
 
-// Add a new client
-router.post('/', (req, res) => {
-    const newClient = req.body;
-    clientes.push(newClient);
-    res.json(newClient);
-});
-
 module.exports = router;
